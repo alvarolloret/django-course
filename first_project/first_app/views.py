@@ -9,3 +9,6 @@ def index (response):
 def help (response):
     help_dic={'insert_name' : "Pedro"}
     return render (response, 'firstapp/help.html', context=help_dic)
+
+def photo (response):
+        return render (response, 'firstapp/photo.html')

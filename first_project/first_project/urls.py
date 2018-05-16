@@ -23,5 +23,6 @@ urlpatterns = [
 url(r'^$', views.index, name='index'),
     url(r'^firstapp/', include('first_app.urls')),
     url(r'^help/', views.help, name='help'),
+    url(r'^photo/', views.photo, name='photo'),
     path('admin/', admin.site.urls),
 ]
