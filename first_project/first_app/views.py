@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from first_app.models import AccesRecord, Topic, Webpage
 # Create your views here.
 
 def index (response):
@@ -12,3 +13,9 @@ def help (response):
 
 def photo (response):
         return render (response, 'firstapp/photo.html')
+
+# Lessom 129 Model template view
+def mtv (response):
+    webpages_list=AccesRecord.objects.order_by('date')
+    date_dic={'acces_records': webpages_list}
+    return render (response, 'firstapp/mtv.html', context=date_dic)
