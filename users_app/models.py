@@ -9,10 +9,10 @@ class User (models.Model):
     age=models.IntegerField(default=0)
     password=models.IntegerField(default=0)
     def __str__(self):
-        return self.user_name
+        return self.name
 
 class UserAge(models.Model):
-    user_name=models.ForeignKey(User, on_delete=models.DO_NOTHING,)
     user_age=models.IntegerField(default=0)
+    user_name=models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.user_age)
