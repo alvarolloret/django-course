@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Users list</title>
@@ -12,16 +12,28 @@
   <body>
     <div class="container">
       <h2>Active users in a List Group</h2>
+
       <div class="list-group">
-        {% if users_created %}
-          {% for user in users_created %}
-            <a href="#" class="col-xs-4 list-group-item active">{{ user.name }}</a>
-            <a href="#" class="col-xs-4 list-group-item active">{{ user.surname }}</a>
-            <a href="#" class="col-xs-4 list-group-item active">{{ user.email }}</a>
-          {% endfor %}
-        {% else %}
-          <p> No acces records found </p>
-        {% endif %}
+        <div class="col-md-6 justify-content-center">
+          <ul class="list-group">
+            <a href="#" class="list-group-item list-group-item active row">
+                <div class="col-xs-5">Name</div>
+                <div class="col-xs-5">Email</div>
+                <div class="col-xs-2">Age</div>
+            </a>
+            {% if users_created %}
+              {% for user in users_created %}
+                    <a href="#" class="list-group-item list-group-item-action row">
+                        <div class="col-xs-5">{{ user.name }}</div>
+                        <div class="col-xs-5">{{ user.email }}</div>
+                        <div class="col-xs-2">{{ user.age }}</div>
+                    </a>
+              {% endfor %}
+            {% else %}
+              <p> No acces records found </p>
+            {% endif %}
+          </ul>
+        </div>
 
       </div>
     </div>
