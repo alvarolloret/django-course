@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Model Template view</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+  </head>
+  <body>
+    <h1>Hi welcome to lvl " dajnago"</h1>
+
+    <h2>Acces records</h2>
+    <div class="djangotwo">
+      {% if acces_records %}
+        <table>
+          <thead>
+            <th>Site Name</th>
+            <th>Date Accesed</th>
+          </thead>
+
+          {% for acc in acces_records %}
+          <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.date }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+      <p> No acces records found </p>
+      {% endif %}
+
+
+    </div>
+  </body>
+</html>
